@@ -9,11 +9,11 @@ const options:SelectOptions[] =[
   {label:"Fourth",value:4},
 ]
 function App() {
-  const [value, setValue] = useState<SelectOptions[]>([options[1]])
+  const [value, setValue] = useState<SelectOptions[]|undefined>([options[1]])
   const [value1, setValue1] = useState<SelectOptions| undefined>(options[1])
   return (
     <div className="App">
-     <Select multiple options={options} value={value} onChange={(o:SelectOptions|undefined)=>setValue(o)} />
+     <Select multiple options={options} value={value} onChange={(o:SelectOptions[]|undefined)=>setValue(o)} />
      <Select options={options} value={value1} onChange={(o:SelectOptions|undefined)=>setValue1(o)} />
 
     </div>

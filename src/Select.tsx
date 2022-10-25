@@ -11,8 +11,8 @@ export default function Select({multiple, options,value,onChange}:SelectProps) {
     }
     function selectOptions(option:SelectOptions){
         if (multiple) {
-            if(value.includes(option)) {onChange(value.filter(o=>o!=option))}else {
-                onChange([...value,option])  
+            if(value?.includes(option)) {onChange(value.filter(o=>o!=option))}else {
+                onChange([...value ,option])  
             }
         }else {
              if(value!==option)    onChange(option)
@@ -20,7 +20,7 @@ export default function Select({multiple, options,value,onChange}:SelectProps) {
     
     }
     function isOptionSelected(option:SelectOptions){
-        return multiple? value.includes(option):option===value
+        return multiple? value?.includes(option):option===value
     }
     useEffect(()=>{
         if(isOpen){
@@ -68,7 +68,7 @@ export default function Select({multiple, options,value,onChange}:SelectProps) {
     className={style.container}
   >
     <span className={style.value}>
-     {multiple?value.map(val=>{
+     {multiple?value?.map(val=>{
         return <button className={style["option-bage"]} key={val.value} onClick={e=>{
             e.stopPropagation()
             selectOptions(val)

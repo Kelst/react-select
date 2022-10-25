@@ -4,8 +4,8 @@
 }
 export type MultipleSelectProps={
     multiple:true,
-    onChange:(value:SelectOptions[]|undefined)=>void,
-    value:SelectOptions[]
+    onChange?:(value:SelectOptions[])=>void,
+    value?:SelectOptions[]
 }
 export type SingleSelectProps={
     multiple?:false,
